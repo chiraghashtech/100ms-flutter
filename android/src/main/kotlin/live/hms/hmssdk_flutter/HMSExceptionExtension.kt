@@ -12,9 +12,8 @@ class HMSExceptionExtension {
             args.put("action",hmsException.action)
             args.put("code",hmsException.code)
             args.put("description",hmsException.description)
-            args.put("name",hmsException.name)
+            args.put("id",hmsException.name)
             args.put("message",hmsException.message)
-
             val errorArgs=HashMap<String,Any>()
             errorArgs.put("error",args)
             return errorArgs

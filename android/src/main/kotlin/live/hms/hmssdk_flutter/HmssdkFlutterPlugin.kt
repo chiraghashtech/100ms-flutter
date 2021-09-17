@@ -180,9 +180,9 @@ class HmssdkFlutterPlugin : FlutterPlugin, MethodCallHandler, HMSUpdateListener,
 
     override fun onError(error: HMSException) {
 
-        val args = HashMap<String, Any>()
+        val args = HashMap<String, Any?>()
         args.put("event_name", "on_error")
-        args.put("data", HMSExceptionExtension.toDictionary(error)!!)
+        args.put("data", HMSExceptionExtension.toDictionary(error))
 //        Log.i("onError", args["data"].toString())
         CoroutineScope(Dispatchers.Main).launch {
             eventSink!!.success(args)

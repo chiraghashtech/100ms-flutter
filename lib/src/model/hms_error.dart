@@ -10,7 +10,6 @@ class HMSError {
   ///description is info in android
   String description;
   String action;
-  Map? params;
 
   HMSError({
     this.id,
@@ -18,7 +17,6 @@ class HMSError {
     required this.message,
     required this.description,
     required this.action,
-    required this.params,
   });
 
   factory HMSError.fromMap(Map map) {
@@ -34,7 +32,6 @@ class HMSError {
       message: map['message'],
       action: map['action'],
       description: map['info'] ?? map['description'] ?? '',
-      params: map['params'],
     );
   }
 
@@ -47,11 +44,9 @@ class HMSError {
       'info': this.description,
       'description': this.description,
       'action': this.action,
-      'params': this.params,
     };
   }
 
   String get localizedDescription => message;
 
-  Map get analyticsRepresentation => params ?? {};
 }
